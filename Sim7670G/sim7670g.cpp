@@ -1,6 +1,6 @@
 #include "sim7670g.h"
-#include <string.h>
 #include <cstdio>
+#include <string.h>
 
 // Buffer circular para RX
 static char rx_buffer[RX_BUFFER_SIZE];
@@ -10,7 +10,8 @@ static uint16_t rx_tail = 0;
 // Variables de estado
 static uint64_t last_response_time = 0;
 
-Sim7670G::Sim7670G()
+Sim7670G::Sim7670G(const std::string & sim_pin)
+    : pin_(sim_pin)
 {
 }
 
@@ -192,8 +193,8 @@ bool Sim7670G::sim7670g_check_sim()
     
     if (sim7670g_send_command("AT+CPIN?", "SIM PIN", SIM7670G_CMD_TIMEOUT))
     {
-        std::string pinCommand = "AT+CPIN=\"" + std::to_string(SIM_PIN) + "\"";
-        if(sim7670g_send_command(pinCommand, "OK", SIM7670G_CMD_TIMEOUT))
+        std::string pinCommand = "AT+CPIN=\"" + pin_ + "\"";
+        if(sim7670g_send_command(pinCommand.c_str(), "OK", SIM7670G_CMD_TIMEOUT))
         {
             printf("✓ SIM desbloqueada\n");
         }

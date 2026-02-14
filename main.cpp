@@ -103,7 +103,7 @@ int main()
     printf("  Tracker - Raspberry Pi Pico W\n");
     printf("======================================\n\n");
 
-    Sim7670G sim7670g;
+    Sim7670G sim7670g = Sim7670G(SIM_PIN);
 
     // initialize UART for SIM7670G
     sim7670g.sim7670g_uart_init();

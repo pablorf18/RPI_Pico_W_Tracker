@@ -2,6 +2,7 @@
 #define SIM7670G_H
 
 #include <stdint.h>
+#include <string>
 #include <stdbool.h>
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
@@ -47,7 +48,7 @@ class Sim7670G
 {
 public:
 
-    Sim7670G();
+    explicit Sim7670G(const std::string& sim_pin);
     ~Sim7670G();
 
     // Funciones públicas
@@ -73,6 +74,7 @@ private:
     void sim7670g_rx_flush();
 
     sim7670g_info_t device_info;
+    std::string pin_;
 };
 
 #endif
