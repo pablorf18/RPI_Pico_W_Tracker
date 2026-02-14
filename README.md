@@ -1,4 +1,3 @@
-```markdown
 # Raspberry Pi Pico W Tracker
 
 This project is a tracker for the Raspberry Pi Pico W, utilizing the SIM7670G module to establish an internet connection and retrieve location data via its GPS functionality. The tracker communicates with a Telegram bot, allowing users to control and interact with the Raspberry Pi Pico W remotely.
@@ -30,12 +29,9 @@ This project is a tracker for the Raspberry Pi Pico W, utilizing the SIM7670G mo
    ```
 3. Run the `cmake` command with the required parameters:
    ```bash
-   cmake -DPICO_BOARD=pico
-
-2
-
-_w -DTELEGRAM_BOT_TOKEN='telegramToken' -DTELEGRAM_AUTORIZED_USERS='chatId1,chatIdN' -DSIM_PIN='1234' .. && make -j 32
+   cmake -DPICO_BOARD=pico2_w -DTELEGRAM_BOT_TOKEN='telegramToken' -DTELEGRAM_AUTORIZED_USERS='chatId1,chatIdN' -DSIM_PIN='1234' .. && make -j 32
    ```
+   
 
 ## How It Works
 1. The SIM7670G module is initialized to provide internet connectivity and GPS functionality.
@@ -49,4 +45,3 @@ _w -DTELEGRAM_BOT_TOKEN='telegramToken' -DTELEGRAM_AUTORIZED_USERS='chatId1,chat
 
 ## License
 This project is open-source and available under the [MIT License](LICENSE).
-```
